@@ -1,4 +1,3 @@
-// ✅ SAVE (CSV FOR EXCEL)
 #include"header.h"
 void stud_save() {
     FILE *fp = fopen("student.csv", "w");
@@ -9,7 +8,7 @@ void stud_save() {
         return;
     }
 
-    // HEADER (important for Excel)
+ 
     fprintf(fp, "Roll No,Name,Percentage\n");
 
     while (temp) {
@@ -22,7 +21,6 @@ void stud_save() {
     printf("Saved to student.csv (Open in Excel)\n");
 }
 
-// ✅ LOAD FROM CSV
 void stud_load() {
     FILE *fp = fopen("student.csv", "r");
     int roll;
@@ -32,7 +30,7 @@ void stud_load() {
     if (!fp)
         return;
 
-    // Skip header
+   
     fscanf(fp, "%*[^\n]\n");
 
     while (fscanf(fp, "%d,%49[^,],%f\n", &roll, name, &per) == 3) {
